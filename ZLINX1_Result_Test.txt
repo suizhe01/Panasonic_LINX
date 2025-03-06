@@ -1,0 +1,3 @@
+Created On|Material|Model Code|Plant|Loading Group|Neg. stocks in plant|Storage Location|Standard price|Valuation Class|Sales Organization|Distribution Channel|Item category group|Delivering Plant|Warehouse Number|Storage Section Ind.|Stock placement|Loading equip. qty
+2025-01-21|CS-YS12UKA1||28P1||False||10|7920|28S1|E1|NORM|28P1||||
+2025-02-03|CU-RU12AKH|TESTING PQC|28P2||False||0|7920|28S4|D1|NORM|28P2||||
