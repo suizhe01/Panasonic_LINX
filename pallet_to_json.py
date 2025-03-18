@@ -25,20 +25,23 @@ def retrieve_data(connection_string, status):
         (status,)
         )
     rows = cursor.fetchall()
+    zlinx_data = {"ZLINXDATA": []}  # Initialize parent object with a list
 
     for row in rows:
-        rec_stat, term_id, pallet_id,model,serial,prd_date,prd_time,prd_line,order_in,dater,datetime_str,date_fill = row
+        rec_stat, term_id, pallet_id, model, serial, prd_date, prd_time, prd_line, order_in, dater, datetime_str, date_fill = row
         
-
-        zlinx_data = {
-        "ZLINXDATA": {
-            "ZLINENO": f"{prd_line}",
-            "PALLID": f"{pallet_id}",
-            "MATERIAL": f"{model}",
-            "SERIAL": f"{serial}"
+        # Create a dictionary for each record
+        entry = {
+            "ZLINENO": prd_line.strip(),
+            "PALLID": pallet_id.strip(),
+            "MATERIAL": model.strip(),
+            "SERIAL": serial.strip()
         }
-        }
+        
+        zlinx_data["ZLINXDATA"].append(entry) 
 
+    with open("LinxProductOutput.txt", "w") as file:
+        file.write(json.dumps(zlinx_data, indent=4))
         # trigger api waiting for response
 
         # if response:
